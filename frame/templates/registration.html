@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="wrapper">
+        <form class = "form__reg form"action="" method="post">
+            <div class="title">Registration</div>
+            <div>
+                <label class="label" for="name">Your name:</label>
+                <input class="input_nbtn" placeholder="Ivan" type="text" name="name">
+            </div>
+            <div>
+                <label class="label" for="login">Login:</label>
+                <input class="input_nbtn"placeholder="Enter login" type="text" name="login">
+            </div>
+            <div>
+                <label class="label" for="password">Password:</label>
+                <input class="input_nbtn" placeholder="Enter password" type="password" name="password">
+            </div>
+            <div>
+                <label class="label" for="telegram">Telegram:</label>
+                <input class="input_nbtn" placeholder="Example: @username" type="text" name="telegram">
+            </div>
+            <div>
+                <label class="label" for="discord">Discord:</label>
+                <input class="input_nbtn" placeholder="Example: username#1234" type="text" name="discord">
+            </div>
+            <div>
+                <label class="label" for="vk">Vk:</label>
+                <input class="input_nbtn" placeholder="Example: @username" type="text" name="vk">
+            </div>
+            <div>
+                {{error}}
+            </div>
+            <div class="inputs">
+                <input class="input_btn" type="submit" value="Sign In">
+                <input class="input_btn" type="submit" value="Back to login" name="login_back">
+            </div>
+    </div>
+    </form>
+
+</body>
+</html>

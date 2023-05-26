@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class = "wrapper">
+      <form class = "form__log form" action="" method="post">
+        <div class="title">Login</div>
+        <div>
+          <label class="username__label label" for="username">Username</label>
+          <input class="username__input input_nbtn" placeholder="Enter username" type="text" name="username" />
+        </div>
+        <div>
+          <label class="username__label label" for="password">Password</label>
+          <input class="username__input input_nbtn" type="password" placeholder = "Enter password" name="password" />
+        </div>
+        <div>{{error}}</div>
+        <div class ="inputs">
+          <input class = "login input_btn" type="submit" value="login" name="login"/>
+          <input class = "registration input_btn" type="submit" value="registration" name="registration"/>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

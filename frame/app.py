@@ -21,14 +21,14 @@ def login():
             password = request.form.get('password')
 
             if not username:
-                return render_template('login.html', error="Пожалуйста введите логин")
+                return render_template('login.html', error="Пожалуйста, введите логин!")
             if not password:
-                return render_template('login.html', error="Пожалуйста введите пароль")
+                return render_template('login.html', error="Пожалуйста, введите пароль!")
 
             cursor.execute("SELECT * FROM service.users WHERE login=%s AND password=%s", (str(username), str(password)))
             records = list(cursor.fetchall())
             if not records:
-                return render_template('login.html', error="Введенного пользователя не существует")
+                return render_template('login.html', error="Введенного вами пользователя не существует!")
             print(records)
             return render_template('account.html', full_name=records[0][1], login=username, password=password,
                                    telegram=records[0][4], discord=records[0][5], vk=records[0][6])
@@ -52,17 +52,17 @@ def registration():
             vk = request.form.get('vk')
             print(log1n, telegram, discord, vk)
             if not name:
-                return render_template('registration.html', error="Пожалуйста введите ФИ")
+                return render_template('registration.html', error="Пожалуйста, введите ФИ!")
             if not log1n:
-                return render_template('registration.html', error="Пожалуйста введите логин")
+                return render_template('registration.html', error="Пожалуйста, введите логин!")
             if not password:
-                return render_template('registration.html', error="Пожалуйста введите пароль")
+                return render_template('registration.html', error="Пожалуйста, введите пароль!")
             if not telegram:
-                return render_template('registration.html', error="Пожалуйста заполните поле Telegram")
+                return render_template('registration.html', error="Пожалуйста, заполните поле Telegram!")
             if not discord:
-                return render_template('registration.html', error="Пожалуйста заполните поле Discord")
+                return render_template('registration.html', error="Пожалуйста, заполните поле Discord!")
             if not vk:
-                return render_template('registration.html', error="Пожалуйста заполните поле Vk")
+                return render_template('registration.html', error="Пожалуйста, заполните поле Vk!")
             cursor.execute('INSERT INTO service.users(full_name, login, password, telegram, discord, vk) VALUES'
                            ' (%s, %s, %s, %s, %s, %s);', (str(name), str(log1n), str(password), str(telegram),
                                                           str(discord), str(vk)))
